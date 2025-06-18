@@ -15,6 +15,8 @@ import Dashboard from './pages/Dashboard';
 import ChatWidget from './components/ChatWidget';
 import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './style.css';
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <LanguageProvider>
           <div className="container">
             <Navbar />
+            <ToastContainer />
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<Welcome />} />

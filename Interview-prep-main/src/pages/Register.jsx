@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { makeUnauthenticatedPOSTRequest } from '../utils/serverHelpers';
 import { useCookies } from 'react-cookie';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import "./Register.css";
+import './Register.css';
 
 const Register = () => {
   const [firstname, setFirstname] = useState("");
@@ -16,24 +17,33 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
+    if (password.length < 8) {
+      toast.warning("Password should be greater than 8 characters");
+      return;
+    }
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
     const data = { firstname, lastname, email, password };
     const response = await makeUnauthenticatedPOSTRequest("/api/auth/register", data);
-    console.log(response)
+    console.log(response);
+    if(response.message==="User already exists"){
+      toast.error("User Already exists")
+      return
+    }
+
     if (response && !response.err) {
       const token = response.token;
       const date = new Date();
       date.setDate(date.getDate() + 30);
       setCookie("token", token, { path: "/", expires: date });
-      alert("Registration successful!");
+      toast.success("Registration successful!");
       navigate("/");
     } else {
-      alert(response.err || "Registration failed");
+      toast.error(response.err || "Registration failed");
     }
   };
 

@@ -59,7 +59,7 @@ const Login = () => {
         Sign In
       </button>
         <div style={{ margin: '20px 0' }}>
-    <LoginWithGoogle />
+ 
   </div>
 
       <Link href="#" className="text-link">
