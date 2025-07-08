@@ -43,12 +43,14 @@ GEMINI_API_KEY=your-gemini-api-key
 PORT=5000
 
 # Frontend
-- cd Interview_prep_main
-- npm install
-
+```bash
+ cd ../Interview_prep_main
+ npm install
+```
 # Backend
-- cd ../S_interview_backend
-- npm install
-
+```bash
+ cd ../S_interview_backend
+ npm install
+```
 
 
