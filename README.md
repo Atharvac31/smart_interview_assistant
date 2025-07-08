@@ -35,11 +35,20 @@ cd smart_interview_assistant
 ## 🛠️ Setup & Run Locally
 
 Follow these steps to get the Smart Interview Assistant running on your local machine:
+```
+### 2. Set Up Environment Variables
+MONGO_URI=your-mongo-uri
+JWT_SECRET=your-jwt-secret
+GEMINI_API_KEY=your-gemini-api-key
+PORT=5000
 
-### 1. Clone the Repository
+# Frontend
+cd S_interview_frontend
+npm install
 
-```bash
-git clone https://github.com/Atharvac31/smart_interview_assistant.git
-cd smart_interview_assistant
+# Backend
+cd ../S_interview_backend
+npm install
+
 
 
